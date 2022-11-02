@@ -19,11 +19,13 @@ try:
         x, y = [i for i in range(1, len(hailstone_numbers(num)))], [hailstone_numbers(num)[i-1] for i in range(1, len(hailstone_numbers(num)))]
         plt.plot(x, y)
         print("Steps: "+str(len(hailstone_numbers(num))))
-        inp = input("Q to quit, S to not show the graph or anything else to show graph: ").lower()
+        inp = input("Q to quit, S to not show the graph, R to stack with the previous graph or anything else to show graph: ").lower()
         if  inp == 'q':
             quit()
         elif inp == 's':
             plt.close()
+            continue
+        elif inp == 'r':
             continue
         plt.show()
 except:
