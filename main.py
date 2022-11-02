@@ -1,5 +1,9 @@
 try:
     import matplotlib.pyplot as plt
+except:
+    print("Matplotlib not found. Run this command: pip install matplotlib / pip3 install matplotlib")
+    print("If none work: python -m pip install matplotlib")
+try:
     def hailstone_numbers(number):
         curnum, lst = number, []
         while True:
@@ -15,8 +19,12 @@ try:
         x, y = [i for i in range(1, len(hailstone_numbers(num)))], [hailstone_numbers(num)[i-1] for i in range(1, len(hailstone_numbers(num)))]
         plt.plot(x, y)
         print("Steps: "+str(len(hailstone_numbers(num))))
-        if input("Q to quit or anything else to show graph: ").lower() == 'q':
+        inp = input("Q to quit, S to not show the graph or anything else to show graph: ").lower()
+        if  inp == 'q':
             quit()
+        elif inp == 's':
+            plt.close()
+            continue
         plt.show()
 except:
     print('Something went wrong')
